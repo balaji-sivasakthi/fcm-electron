@@ -3,13 +3,15 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.css';
 
-const {ipcRenderer} = require('electron')
+const electron = window.electron
 
 function Hello() {
-
+  
+  
+  const ipcRenderer  = electron.ipcRenderer;
   const handlenNotification=()=>{
 
-   ipcRenderer.send('notification',)
+    
 
   }
 
