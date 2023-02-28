@@ -29,13 +29,24 @@ class AppUpdater {
 let mainWindow: BrowserWindow | null = null;
 
 ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
+  const msgTemplate = (pingPong: string) =>{
+    notifier.notify(pingPong) 
+    return `IPC test: ${pingPong}`
+  }
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
   
-notifier.notify('Message');
+
   
 });
+
+
+ipcMain.on('notification', async (event, data) => {
+
+notifier.notify(data);
+  
+});
+
 
 
 
