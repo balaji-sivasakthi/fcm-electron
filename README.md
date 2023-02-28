@@ -3,6 +3,7 @@
 
 Clone the repo and install dependencies:
 
+```
 npm install
 ```
 
